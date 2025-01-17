@@ -58,6 +58,9 @@ install(TARGETS
     linkedMultiQuery10
     witnesscalc_linkedMultiQuery10
     witnesscalc_linkedMultiQuery10Static
+    proveSha384Sha384Sha384EcdsaBrainpoolP384r1
+    witnesscalc_proveSha384Sha384Sha384EcdsaBrainpoolP384r1
+    witnesscalc_proveSha384Sha384Sha384EcdsaBrainpoolP384r1Static
     fr
     RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
     BUNDLE DESTINATION ${CMAKE_INSTALL_PREFIX}/app
@@ -72,6 +75,7 @@ install(FILES
     src/credentialAtomicQueryMTPV2.dat
     src/credentialAtomicQuerySigV2OnChain.dat
     src/credentialAtomicQueryMTPV2OnChain.dat
+    src/proveSha384Sha384Sha384EcdsaBrainpoolP384r1.dat
     src/credentialAtomicQueryV3.dat
     src/credentialAtomicQueryV3OnChain.dat
     src/linkedMultiQuery10.dat
@@ -83,6 +87,7 @@ install(FILES
     src/witnesscalc_credentialAtomicQuerySigV2.h
     src/witnesscalc_credentialAtomicQueryMTPV2.h
     src/witnesscalc_credentialAtomicQuerySigV2OnChain.h
+    src/witnesscalc_proveSha384Sha384Sha384EcdsaBrainpoolP384r1.h
     src/witnesscalc_credentialAtomicQueryMTPV2OnChain.h
     src/witnesscalc_credentialAtomicQueryV3.h
     src/witnesscalc_credentialAtomicQueryV3OnChain.h
