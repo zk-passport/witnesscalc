@@ -79,6 +79,9 @@ install(TARGETS
     proveSha256Sha256Sha256EcdsaBrainpoolP224r1
     witnesscalc_proveSha256Sha256Sha256EcdsaBrainpoolP224r1
     witnesscalc_proveSha256Sha256Sha256EcdsaBrainpoolP224r1Static
+    proveSha256Sha256Sha256EcdsaBrainpoolP256r1
+    witnesscalc_proveSha256Sha256Sha256EcdsaBrainpoolP256r1
+    witnesscalc_proveSha256Sha256Sha256EcdsaBrainpoolP256r1Static
     fr
     RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
     BUNDLE DESTINATION ${CMAKE_INSTALL_PREFIX}/app
@@ -100,6 +103,7 @@ install(FILES
     src/proveSha1Sha256Sha256Rsa655374096.dat
     src/proveSha256Sha224Sha224EcdsaBrainpoolP224r1.dat
     src/proveSha256Sha256Sha256EcdsaBrainpoolP224r1.dat
+    src/proveSha256Sha256Sha256EcdsaBrainpoolP256r1.dat
     src/credentialAtomicQueryV3.dat
     src/credentialAtomicQueryV3OnChain.dat
     src/linkedMultiQuery10.dat
@@ -118,6 +122,7 @@ install(FILES
     src/witnesscalc_proveSha1Sha256Sha256Rsa655374096.h
     src/witnesscalc_proveSha256Sha224Sha224EcdsaBrainpoolP224r1.h
     src/witnesscalc_proveSha256Sha256Sha256EcdsaBrainpoolP224r1.h
+    src/witnesscalc_proveSha256Sha256Sha256EcdsaBrainpoolP256r1.h
     src/witnesscalc_credentialAtomicQueryMTPV2OnChain.h
     src/witnesscalc_credentialAtomicQueryV3.h
     src/witnesscalc_credentialAtomicQueryV3OnChain.h
