@@ -4,7 +4,7 @@
 host:
 	rm -rf build_witnesscalc && mkdir build_witnesscalc && cd build_witnesscalc && \
 	cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../package && \
-	make -j4 -vvv && make install
+	make -j24 -vvv && make install
 
 arm64_host:
 	rm -rf build_witnesscalc && mkdir build_witnesscalc && cd build_witnesscalc && \

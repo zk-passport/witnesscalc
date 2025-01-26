@@ -2,7 +2,7 @@
 
 set -e
 
-NPROC=8
+NPROC=16
 fetch_cmd=$( (type wget > /dev/null 2>&1 && echo "wget") || echo "curl -O" )
 
 usage()
