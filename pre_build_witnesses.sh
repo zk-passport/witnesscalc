@@ -52,4 +52,11 @@ for circuit in "${circuits[@]}"; do
     cpp_folder_path="circuits/$type/$circuit/${circuit}_cpp"
 
     ./add_circuit.sh $circuit_name $circuit_name_in_caps $witness_calc
+
+    source_cpp_file="$cpp_folder_path/${circuit}.cpp"
+    source_dat_file="$cpp_folder_path/${circuit}.dat"
+    
+    patch_cpp=$witness_calc/patch_cpp.sh
+    bash "$patch_cpp" $source_cpp_file > $witness_calc/src/${circuit_name}.cpp
+    cp $source_dat_file $witness_calc/src/${circuit_name}.dat
 done

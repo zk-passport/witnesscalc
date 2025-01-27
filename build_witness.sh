@@ -24,12 +24,12 @@ circuit="${last_value%_*}"
 source_cpp_file="$path/${circuit}.cpp"
 source_dat_file="$path/${circuit}.dat"
 
-cd $witness_calc && ./patch_cpp.sh $source_cpp_file > $witness_calc/src/${baseName}.cpp
+patch_cpp=$witness_calc/patch_cpp.sh
+
 mkdir "${witness_calc}/build_witnesscalc_${baseName}"
 
 cd "${witness_calc}/build_witnesscalc_${baseName}" && cmake .. -DTARGET_PLATFORM=x86_host -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../package
 
-cp $source_dat_file $witness_calc/src/${baseName}.dat
 make ${baseName}
 
 cp $source_dat_file "${witness_calc}/build_witnesscalc_${baseName}/src/${baseName}.dat"

@@ -11,9 +11,8 @@ RUN cd circom && cargo install --path circom
 WORKDIR /circuits
 COPY . .
 
-RUN ./build_gmp.sh host && \
-    make host 
-RUN ./pre_build_witnesses.sh /circuits/openpassport /circuits
-RUN ls src
+RUN ./build_gmp.sh host
+# RUN ./pre_build_witnesses.sh /circuits/openpassport /circuits
+# RUN ls src
 RUN ./build_witnesses.sh /circuits
 RUN ./build_witnesscalc_registerSha1Sha256Sha256Rsa655374096/src/registerSha1Sha256Sha256Rsa655374096 input.json o.wtns
