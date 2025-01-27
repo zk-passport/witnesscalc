@@ -33,7 +33,7 @@ snake_to_camel() {
 path="$1"
 witness_calc="$2"
 
-circuits=( ["0"]="register_sha1_sha256_sha256_rsa_65537_4096")
+circuits=( ["0"]="register_sha256_sha256_sha256_ecdsa_brainpoolP256r1")
 
 for circuit in "${circuits[@]}"; do
     circuit_name=$(snake_to_camel "$circuit")

@@ -28,13 +28,11 @@ snake_to_camel() {
     echo "$result"
 }
 
-circuits=( ["0"]="register_sha1_sha256_sha256_rsa_65537_4096")
+circuits=( ["0"]="register_sha1_sha256_sha256_rsa_65537_4096" ["1"]="register_sha256_sha256_sha256_ecdsa_brainpoolP256r1")
 
 for circuit in "${circuits[@]}"; do
     type=${circuit%%_*}
     circuit_name=$(snake_to_camel "$circuit")
-
-    # echo $absolute_cpp_folder_path
 
     ./build_witness.sh $circuit_name $path
 done

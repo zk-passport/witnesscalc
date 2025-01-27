@@ -37,6 +37,9 @@ install(TARGETS
     registerSha1Sha256Sha256Rsa655374096
     witnesscalc_registerSha1Sha256Sha256Rsa655374096
     witnesscalc_registerSha1Sha256Sha256Rsa655374096Static
+    registerSha256Sha256Sha256EcdsaBrainpoolP256r1
+    witnesscalc_registerSha256Sha256Sha256EcdsaBrainpoolP256r1
+    witnesscalc_registerSha256Sha256Sha256EcdsaBrainpoolP256r1Static
     fr
     RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
     BUNDLE DESTINATION ${CMAKE_INSTALL_PREFIX}/app
@@ -47,9 +50,11 @@ install(FILES "${GMP_LIB_DIR}/${GMP_LIB_FILE}"
 
 install(FILES
     src/registerSha1Sha256Sha256Rsa655374096.dat
+    src/registerSha256Sha256Sha256EcdsaBrainpoolP256r1.dat
     DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 
 install(FILES
     src/witnesscalc.h
     src/witnesscalc_registerSha1Sha256Sha256Rsa655374096.h
+    src/witnesscalc_registerSha256Sha256Sha256EcdsaBrainpoolP256r1.h
     DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
