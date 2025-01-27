@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
 # take path to open passport as input
-if [ -z "$1" ]; then
-    echo "Usage: $0 <path to open passport monorepo>"
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: $0 <path to open passport monorepo> <path to witnesscalc repo>"
     exit 1
 fi
 
 # throw an error if the path is not an absolute path
-if [[ "$1" != /* && "$1" != ~* ]]; then
+if [[ "$1" != /* && "$1" != ~* ]] || [[ "$2" != /* && "$2" != ~* ]]; then
     echo "Error: The provided path must be an absolute path."
     exit 1
 fi
 
 # it should not end with a /
-if [[ "$1" == */ ]]; then
+if [[ "$1" == */ ]] || [[ "$2" == */ ]]; then
     echo "Error: The provided path must not end with a '/'."
     exit 1
 fi
@@ -31,9 +31,9 @@ snake_to_camel() {
 }
 
 path="$1"
-cd "$path/circuits" && yarn && cd "../../"
+witness_calc="$2"
+# cd "$path/circuits" && yarn && cd "../../"
 
-# circuits=( ["0"]="register_sha256_sha256_sha256_ecdsa_brainpoolP256r1" ["1"]="register_sha1_sha1_sha1_rsa_65537_4096" )
 circuits=( ["0"]="register_sha1_sha256_sha256_rsa_65537_4096")
 
 for circuit in "${circuits[@]}"; do
@@ -49,12 +49,9 @@ for circuit in "${circuits[@]}"; do
 
     mkdir -p $output
 
-    circom $path_to_circuit -l "$path/circuits/node_modules" -l "$path/circuits/node_modules/@zk-kit/binary-merkle-root.circom/src" -l "$path/circuits/node_modules/circomlib/circuits" --O1 -c --output $output
+    # circom $path_to_circuit -l "$path/circuits/node_modules" -l "$path/circuits/node_modules/@zk-kit/binary-merkle-root.circom/src" -l "$path/circuits/node_modules/circomlib/circuits" --O1 -c --output $output
 
     cpp_folder_path="circuits/$type/$circuit/${circuit}_cpp"
 
-    cp "$cpp_folder_path/${circuit}.cpp" "src/${circuit_name}.cpp" 
-    cp "$cpp_folder_path/${circuit}.dat" "src/${circuit_name}.dat" 
-
-    ./add_circuit.sh $circuit_name $circuit_name_in_caps
+    ./add_circuit.sh $circuit_name $circuit_name_in_caps $witness_calc
 done

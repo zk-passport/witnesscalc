@@ -2,13 +2,14 @@
 
 # In /CMkaeLists.txt move the new circuits above the "fr" line
 
-if [ -z "$1" ] || [ -z "$2" ]; then
-    echo "Usage: $0 <circuit name> <header name>"
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
+    echo "Usage: $0 <circuit name> <header name> <path to open witnesscalc>"
     exit 1
 fi
 
 circuit="$1"
 header="$2"
+witness_calc="$3"
 
 cmake_file="CMakeLists.txt"
 content=$(<"$cmake_file")
@@ -109,16 +110,16 @@ witnesscalc_proveSha1Sha1Sha1Rsa655374096(
 }
 '
 
-touch ./src/witnesscalc_${circuit}.h
-touch ./src/witnesscalc_${circuit}.cpp
 
-echo "$cpp_header_content" > ./src/witnesscalc_${circuit}.h
-echo "$cpp_content" > ./src/witnesscalc_${circuit}.cpp
+touch $witness_calc/src/witnesscalc_${circuit}.h
+touch $witness_calc/src/witnesscalc_${circuit}.cpp
 
-sed -i "s/WITNESSCALC_PROVESHA1SHA1SHA1RSA655374096_H/WITNESSCALC_${header^^}_H/g" ./src/witnesscalc_${circuit}.h
-sed -i "s/witnesscalc_proveSha1Sha1Sha1Rsa655374096/witnesscalc_${circuit}/g" ./src/witnesscalc_${circuit}.h
+echo "$cpp_header_content" > $witness_calc/src/witnesscalc_${circuit}.h
+echo "$cpp_content" > $witness_calc/src/witnesscalc_${circuit}.cpp
 
-sed -i "s/witnesscalc_proveSha1Sha1Sha1Rsa655374096/witnesscalc_${circuit}/g" ./src/witnesscalc_${circuit}.cpp
+sed -i "s/WITNESSCALC_PROVESHA1SHA1SHA1RSA655374096_H/WITNESSCALC_${header^^}_H/g" $witness_calc/src/witnesscalc_${circuit}.h
+sed -i "s/witnesscalc_proveSha1Sha1Sha1Rsa655374096/witnesscalc_${circuit}/g" $witness_calc/src/witnesscalc_${circuit}.h
+sed -i "s/witnesscalc_proveSha1Sha1Sha1Rsa655374096/witnesscalc_${circuit}/g" $witness_calc/src/witnesscalc_${circuit}.cpp
 
 file="src/CMakeLists.txt"  # Replace this with the actual file name
 

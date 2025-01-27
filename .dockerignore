@@ -1,3 +1,4 @@
 /build_witnesscalc*
 /build/*.o
 /depends/gmp*
+package*

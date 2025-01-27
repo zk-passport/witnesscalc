@@ -1,6 +1,22 @@
 #!/usr/bin/env bash
 
-# run from root
+# run from root of the repo
+if [ -z "$1" ]; then
+    echo "Usage: $0 <path to open witnesscalc>"
+    exit 1
+fi
+# throw an error if the path is not an absolute path
+if [[ "$1" != /* && "$1" != ~* ]]; then
+    echo "Error: The provided path must be an absolute path."
+    exit 1
+fi
+
+# it should not end with a /
+if [[ "$1" == */ ]]; then
+    echo "Error: The provided path must not end with a '/'."
+    exit 1
+fi
+path="$1"
 
 snake_to_camel() {
     local input="$1"
@@ -21,5 +37,7 @@ for circuit in "${circuits[@]}"; do
 
     absolute_cpp_folder_path=$PWD/$cpp_folder_path
 
-    ./build_witness.sh $absolute_cpp_folder_path $circuit_name
-done 
+    echo $absolute_cpp_folder_path
+
+    ./build_witness.sh $absolute_cpp_folder_path $circuit_name $path
+done
