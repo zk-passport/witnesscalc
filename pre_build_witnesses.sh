@@ -32,7 +32,6 @@ snake_to_camel() {
 
 path="$1"
 witness_calc="$2"
-# cd "$path/circuits" && yarn && cd "../../"
 
 circuits=( ["0"]="register_sha1_sha256_sha256_rsa_65537_4096")
 

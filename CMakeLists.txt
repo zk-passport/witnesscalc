@@ -34,6 +34,9 @@ add_subdirectory(src)
 install(TARGETS
     tests
     test_platform
+    registerSha1Sha256Sha256Rsa655374096
+    witnesscalc_registerSha1Sha256Sha256Rsa655374096
+    witnesscalc_registerSha1Sha256Sha256Rsa655374096Static
     fr
     RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
     BUNDLE DESTINATION ${CMAKE_INSTALL_PREFIX}/app
@@ -43,8 +46,10 @@ install(FILES "${GMP_LIB_DIR}/${GMP_LIB_FILE}"
     DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 
 install(FILES
+    src/registerSha1Sha256Sha256Rsa655374096.dat
     DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 
 install(FILES
     src/witnesscalc.h
+    src/witnesscalc_registerSha1Sha256Sha256Rsa655374096.h
     DESTINATION ${CMAKE_INSTALL_PREFIX}/include)

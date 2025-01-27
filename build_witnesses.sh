@@ -33,11 +33,8 @@ circuits=( ["0"]="register_sha1_sha256_sha256_rsa_65537_4096")
 for circuit in "${circuits[@]}"; do
     type=${circuit%%_*}
     circuit_name=$(snake_to_camel "$circuit")
-    cpp_folder_path="circuits/$type/$circuit/${circuit}_cpp"
-
-    absolute_cpp_folder_path=$path/$cpp_folder_path
 
     # echo $absolute_cpp_folder_path
 
-    ./build_witness.sh $absolute_cpp_folder_path $circuit_name $path
+    ./build_witness.sh $circuit_name $path
 done
