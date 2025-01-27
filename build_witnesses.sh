@@ -35,9 +35,9 @@ for circuit in "${circuits[@]}"; do
     circuit_name=$(snake_to_camel "$circuit")
     cpp_folder_path="circuits/$type/$circuit/${circuit}_cpp"
 
-    absolute_cpp_folder_path=$PWD/$cpp_folder_path
+    absolute_cpp_folder_path=$path/$cpp_folder_path
 
-    echo $absolute_cpp_folder_path
+    # echo $absolute_cpp_folder_path
 
     ./build_witness.sh $absolute_cpp_folder_path $circuit_name $path
 done

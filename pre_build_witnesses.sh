@@ -41,15 +41,13 @@ for circuit in "${circuits[@]}"; do
     circuit_name_in_caps=$(echo "$circuit_name" | tr '[:lower:]' '[:upper:]')
     type=${circuit%%_*}
 
-    # echo "$path/circuits/circuits/$type/instances/$circuit.circom"
-
     path_to_circuit="$path/circuits/circuits/$type/instances/$circuit.circom"
 
     output="./circuits/$type/$circuit/"
 
     mkdir -p $output
 
-    # circom $path_to_circuit -l "$path/circuits/node_modules" -l "$path/circuits/node_modules/@zk-kit/binary-merkle-root.circom/src" -l "$path/circuits/node_modules/circomlib/circuits" --O1 -c --output $output
+    circom $path_to_circuit -l "$path/circuits/node_modules" -l "$path/circuits/node_modules/@zk-kit/binary-merkle-root.circom/src" -l "$path/circuits/node_modules/circomlib/circuits" --O1 -c --output $output
 
     cpp_folder_path="circuits/$type/$circuit/${circuit}_cpp"
 
